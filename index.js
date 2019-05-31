@@ -2,17 +2,7 @@ const { graphql } = require("graphql");
 const { makeExecutableSchema } = require("graphql-tools");
 const gql = require("fake-tag");
 
-const {
-  schema: authorsSchema,
-  resolvers: authorsResolvers
-} = require("./modules/authors");
-const {
-  schema: booksSchema,
-  resolvers: booksResolvers
-} = require("./modules/books");
-
-const typeDefs = [authorsSchema, booksSchema];
-const resolvers = [authorsResolvers, booksResolvers];
+const { typeDefs, resolvers } = require("./modules");
 
 const schema = makeExecutableSchema({
   typeDefs,
