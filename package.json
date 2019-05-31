@@ -11,6 +11,6 @@
     "prettier": "^1.17.1"
   },
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon --inspect index.js"
   }
 }
