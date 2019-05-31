@@ -1,5 +1,6 @@
 const { graphql } = require("graphql");
 const { makeExecutableSchema } = require("graphql-tools");
+const gql = require("fake-tag");
 
 const {
   schema: authorsSchema,
@@ -18,10 +19,10 @@ const schema = makeExecutableSchema({
   resolvers
 });
 
-const query = `
+const query = gql`
   query {
     getBooks {
-        title
+      title
     }
     getAuthors {
       name
