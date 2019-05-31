@@ -1,13 +1,7 @@
 const { graphql } = require("graphql");
-const { makeExecutableSchema } = require("graphql-tools");
 const gql = require("fake-tag");
 
-const { typeDefs, resolvers } = require("./modules");
-
-const schema = makeExecutableSchema({
-  typeDefs,
-  resolvers
-});
+const schema = require("./modules");
 
 const query = gql`
   query {
