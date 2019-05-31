@@ -2,6 +2,8 @@ const { graphql } = require("graphql");
 const { makeExecutableSchema } = require("graphql-tools");
 const gql = require("fake-tag");
 
+const { schema: authorsSchema } = require("./modules/authors");
+
 const resolvers = {
   Query: {
     getBooks: () => {
@@ -29,14 +31,8 @@ const resolvers = {
   }
 };
 
-const typeDefs0 = gql`
-  type Query {
-    foo: String
-  }
-`;
-
 const typeDefs1 = gql`
-  extend type Query {
+  type Query {
     getAuthors: [Author]
   }
 
@@ -57,7 +53,7 @@ const typeDefs2 = gql`
   }
 `;
 
-const typeDefs = typeDefs0 + typeDefs1 + typeDefs2;
+const typeDefs = authorsSchema + typeDefs2;
 
 const schema = makeExecutableSchema({
   typeDefs,
