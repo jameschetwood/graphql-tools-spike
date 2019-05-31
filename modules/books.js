@@ -11,4 +11,22 @@ const schema = gql`
   }
 `;
 
+const resolvers = {
+  Query: {
+    getAuthors: () => {
+      return [
+        {
+          name: "JK Rowling",
+          books: [
+            {
+              title: "Harry Potter 2"
+            }
+          ]
+        }
+      ];
+    }
+  }
+};
+
 module.exports.schema = schema;
+module.exports.resolvers = resolvers;
