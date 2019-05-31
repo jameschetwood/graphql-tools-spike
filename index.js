@@ -22,11 +22,5 @@ const schema = new GraphQLSchema({
 const query = '{ hello }';
 
 graphql(schema, query).then(result => {
-
-    // Prints
-    // {
-    //   data: { hello: "world" }
-    // }
     console.log(result);
-
 });
