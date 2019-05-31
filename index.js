@@ -1,21 +1,16 @@
 const { graphql } = require("graphql");
 const { makeExecutableSchema } = require("graphql-tools");
 
-const { schema: authorsSchema } = require("./modules/authors");
+const {
+  schema: authorsSchema,
+  resolvers: authorsResolvers
+} = require("./modules/authors");
 const { schema: booksSchema } = require("./modules/books");
 
-const resolvers = {
+// console.log(authorsResolvers);
+
+const resolvers1 = {
   Query: {
-    getBooks: () => {
-      return [
-        {
-          title: "Harry Potter",
-          author: {
-            name: "JK Rowling 2"
-          }
-        }
-      ];
-    },
     getAuthors: () => {
       return [
         {
@@ -32,6 +27,7 @@ const resolvers = {
 };
 
 const typeDefs = [authorsSchema, booksSchema];
+const resolvers = [resolvers1, authorsResolvers];
 
 const schema = makeExecutableSchema({
   typeDefs,
